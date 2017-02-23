@@ -12,13 +12,23 @@ extension UIViewController {
     func SetBackground()
     {
         UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "red-bg")?.draw(in: self.view.bounds)
+        UIImage(named: "redripples")?.draw(in: self.view.bounds)
         
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         
         UIGraphicsEndImageContext()
         
         self.view.backgroundColor = UIColor(patternImage: image)
+        
+        
+        
+        // Adds Blur View
+        
+        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        blurView.frame = view.bounds
+     
+        view.addSubview(blurView)
         
                 
         

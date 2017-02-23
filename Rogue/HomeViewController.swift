@@ -10,16 +10,26 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(HandleLogout))
         
-            }
+    }
+    
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 
     func HandleLogout()
     {
         let LoginController = LoginViewController()
+//        let LoginControllerwithNaviagtion = UINavigationController(rootViewController: LoginController)
+//        present(LoginControllerwithNaviagtion, animated: true, completion: nil)
         present(LoginController, animated: true, completion: nil)
     }
 
