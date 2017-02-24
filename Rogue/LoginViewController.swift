@@ -23,11 +23,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
             
             
-        self.SetBackground()
-        self.DismissKeyboard()
+       self.SetBackground()
+       self.DismissKeyboard()
+  
             
-        
-      
+            
+//        view.addSubview(theScrollView)
+//            theScrollViewConstraints()
+//
     
             
             view.addSubview(LogoImageView)
@@ -43,7 +46,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             view.addSubview(SignUpButton)
             SignUpButtonConstraints()
         
-        
+            
+           
+
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
             
         
         }
@@ -77,8 +85,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     {
         LogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         LogoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
-        LogoImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        LogoImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        LogoImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        LogoImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+      
     }
     
     
@@ -101,12 +110,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return view
     }()
     
+    
+    
     func Setupinputconatinerview()
     {
         inputcontainerview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputcontainerview.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         inputcontainerview.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        
+        
+        
         inputcontainerview.addSubview(EmailTextField)
         EmailTextFieldConstraints()
         
@@ -135,7 +150,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailtf.layer.cornerRadius = 20
         emailtf.layer.backgroundColor = UIColor.darkGray.cgColor
         emailtf.translatesAutoresizingMaskIntoConstraints = false
-        
+        emailtf.autocorrectionType = .no
         
         // The rounded corners were hiding the text , this block of code indents the text to the left
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
@@ -192,7 +207,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func PasswordTextFieldConstraints()
     {
         PasswordTextField.leftAnchor.constraint(equalTo: inputcontainerview.leftAnchor, constant: 15).isActive = true
-        PasswordTextField.topAnchor.constraint(equalTo: EmailTextField.bottomAnchor, constant: 16).isActive = true
+      PasswordTextField.topAnchor.constraint(equalTo: EmailTextField.bottomAnchor, constant: 16).isActive = true
         PasswordTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
         PasswordTextField.heightAnchor.constraint(equalToConstant: 45).isActive = true
         
@@ -275,10 +290,86 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let SignUpControllerwithNavigation = UINavigationController(rootViewController: SignUpController)
         present(SignUpControllerwithNavigation, animated: true, completion: nil)
         
+        
+    }
+    
+   
+    
+    
+    
+    
+    
+    func keyboardWillShow()
+    {
+        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20).isActive = true
+        
+        LogoImageView.isHidden = true
+    }
+
+    func keyboardWillHide()
+    {
+        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        LogoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        LogoImageView.isHidden = false
     }
     
     
+
+ 
     
     
+//    let theScrollView: UIScrollView = {
+//        let scrollview = UIScrollView()
+//        scrollview.layer.masksToBounds = true
+//        scrollview.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        
+//        return scrollview
+//    }()
+//    
+//    
+//    func theScrollViewConstraints()
+//    {
+//        
+//        theScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        theScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        theScrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//        theScrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+//        
+//        
+//        
+//        theScrollView.addSubview(LogoImageView)
+//        LogoImageViewConstraints()
+//        
+//        theScrollView.addSubview(inputcontainerview)
+//        Setupinputconatinerview()
+//        
+//        theScrollView.addSubview(LoginButton)
+//        LoginButtonConstraints()
+//        
+//        
+//        theScrollView.addSubview(SignUpButton)
+//        SignUpButtonConstraints()
+//    }
+//   
+//    
+//    
+//    
+//    
+//    func keyboardWillShow(notification:NSNotification){
+//        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
+//        var userInfo = notification.userInfo!
+//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+//        
+//        var contentInset:UIEdgeInsets = self.theScrollView.contentInset
+//        contentInset.bottom = keyboardFrame.size.height
+//        self.theScrollView.contentInset = contentInset
+//    }
+//    
+//    func keyboardWillHide(notification:NSNotification){
+//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+//        self.theScrollView.contentInset = contentInset
+//    }
     
 }
