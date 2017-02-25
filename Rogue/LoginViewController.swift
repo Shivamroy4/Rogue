@@ -18,10 +18,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
            
-            navigationItem.title = "Rouge"
-            navigationController?.navigationBar.barTintColor = UIColor.red.withAlphaComponent(0.3)
-            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
-            
+//            navigationItem.title = "Rouge"
+//            navigationController?.navigationBar.barTintColor = UIColor.red.withAlphaComponent(0.3)
+//            navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
+//            
             
        self.SetBackground()
        self.DismissKeyboard()
@@ -55,6 +55,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         
         }
+    
+    
+ 
 
        
     

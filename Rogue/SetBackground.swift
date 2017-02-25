@@ -26,12 +26,16 @@ extension UIViewController {
         
         let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: darkBlur)
-        blurView.frame = view.bounds
-     
+        
+        
+       blurView.frame = view.bounds
+
+        
         view.addSubview(blurView)
         
                 
         
     }
 
+   
 }

@@ -16,6 +16,11 @@ class SignUpViewController: UIViewController {
        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(HandleCancel))
        
+        navigationItem.title = "Register"
+        navigationController?.navigationBar.barStyle = .blackTranslucent
+        navigationController?.navigationBar.tintColor = UIColor.red.withAlphaComponent(0.6)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red.withAlphaComponent(0.6)]
+        
         
         
         self.SetBackground()
@@ -59,9 +64,11 @@ class SignUpViewController: UIViewController {
     func ScrollViewConstraints()
     {
         ScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        ScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+      //  ScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         ScrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        ScrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+      //  ScrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        ScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        ScrollView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2).isActive = true
         
         
         ScrollView.addSubview(inputcontainerview)
@@ -91,10 +98,11 @@ class SignUpViewController: UIViewController {
     func Setupinputconatinerview()
     {
         inputcontainerview.centerXAnchor.constraint(equalTo: ScrollView.centerXAnchor).isActive = true
-        inputcontainerview.centerYAnchor.constraint(equalTo: ScrollView.centerYAnchor).isActive = true
+       // inputcontainerview.centerYAnchor.constraint(equalTo: ScrollView.centerYAnchor).isActive = true
         inputcontainerview.widthAnchor.constraint(equalTo: ScrollView.widthAnchor, constant: -24).isActive = true
-        inputcontainerview.heightAnchor.constraint(equalTo: ScrollView.heightAnchor, constant: -24).isActive = true
-        
+       // inputcontainerview.heightAnchor.constraint(equalTo: ScrollView.heightAnchor, constant: -24).isActive = true
+        inputcontainerview.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -24).isActive = true
+        inputcontainerview.topAnchor.constraint(equalTo: ScrollView.topAnchor, constant: 20).isActive = true
         
         inputcontainerview.addSubview(EmailTextField)
         EmailTextFieldConstraints()
@@ -170,7 +178,7 @@ class SignUpViewController: UIViewController {
     func EmailTextFieldConstraints()
     {
         EmailTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
-        EmailTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 60).isActive = true
+        EmailTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 65).isActive = true
         EmailTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
         EmailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
