@@ -163,7 +163,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func EmailTextFieldConstraints()
     {
-        EmailTextField.leftAnchor.constraint(equalTo: inputcontainerview.leftAnchor, constant: 15).isActive = true
+        EmailTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
         EmailTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 20).isActive = true
         EmailTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
         EmailTextField.heightAnchor.constraint(equalToConstant: 45).isActive = true
@@ -206,7 +206,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   
     func PasswordTextFieldConstraints()
     {
-        PasswordTextField.leftAnchor.constraint(equalTo: inputcontainerview.leftAnchor, constant: 15).isActive = true
+        PasswordTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
       PasswordTextField.topAnchor.constraint(equalTo: EmailTextField.bottomAnchor, constant: 16).isActive = true
         PasswordTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
         PasswordTextField.heightAnchor.constraint(equalToConstant: 45).isActive = true
