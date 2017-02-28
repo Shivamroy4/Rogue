@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
     
+        FIRApp.configure()
     
         
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())

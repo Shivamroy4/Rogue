@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -199,6 +200,7 @@ class SignUpViewController: UIViewController {
         emailtf.layer.backgroundColor = UIColor.darkGray.cgColor
         emailtf.translatesAutoresizingMaskIntoConstraints = false
         emailtf.autocorrectionType = .no
+        emailtf.autocapitalizationType = .none
         emailtf.keyboardType = UIKeyboardType.emailAddress
         
         // The rounded corners were hiding the text , this block of code indents the text to the left
@@ -381,6 +383,7 @@ class SignUpViewController: UIViewController {
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.red
        
+        
         return sc
     }()
     
@@ -406,6 +409,7 @@ class SignUpViewController: UIViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.textAlignment = .center
+            
             
             return label
     }()
@@ -461,7 +465,7 @@ class SignUpViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         
         
-       // button.addTarget(self, action: #selector(OpenSignUpScreen), for: .touchUpInside )
+        button.addTarget(self, action: #selector(RegisterUser), for: .touchUpInside )
         
         
         return button
@@ -478,6 +482,71 @@ class SignUpViewController: UIViewController {
     }
 
     
+    
+    
+    func RegisterUser()
+    {
+        
+        
+        guard let email = EmailTextField.text,let password = PasswordTextField.text,let name = NameTextField.text,let phone = PhoneTextField.text,let city = CityTextField.text
+        else
+        {
+            print("Form Not Valid")
+            return
+        }
+        
+        let bloodint: Int = BloodTypeControl.selectedSegmentIndex
+      
+        
+        let bloodtype: String = BloodTypeControl.titleForSegment(at: bloodint)!
+        let isdonor: Bool
+
+        switch isDonorControl.selectedSegmentIndex
+        {
+        case 0:
+            isdonor = true
+        case 1:
+            isdonor = false
+        default:
+            isdonor = true
+            print("If you don't specify whether you want to donate or not , you will be considered a donor")
+            }
+        
+        
+        
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, signuperror) in
+            
+            
+            if signuperror != nil
+            {
+                print(signuperror!)
+                return
+            }
+            print("register")
+            
+            guard let uid = user?.uid else
+            {
+                return
+            }
+            
+            let ref: FIRDatabaseReference! = FIRDatabase.database().reference()
+            let UsersRef = ref.child("Users").child(uid)
+            
+            let users = ["Name": name,"Email": email,"Phone": phone,"City": city,"BloodType": bloodtype,"isDonor": isdonor] as [AnyHashable: Any]
+                
+                
+            UsersRef.updateChildValues(users, withCompletionBlock: { (databaseerror, ref) in
+                
+                if databaseerror != nil
+                {
+                    print(databaseerror!)
+                    return
+                }
+                
+                print("Saved User Successfully")
+            })
+        })
+    }
     
     
     
