@@ -154,6 +154,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailtf.layer.backgroundColor = UIColor.darkGray.cgColor
         emailtf.translatesAutoresizingMaskIntoConstraints = false
         emailtf.autocorrectionType = .no
+        emailtf.keyboardType = UIKeyboardType.emailAddress
         
         // The rounded corners were hiding the text , this block of code indents the text to the left
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
@@ -309,6 +310,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         LogoImageView.isHidden = true
     }
 
+    
     func keyboardWillHide()
     {
         inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true

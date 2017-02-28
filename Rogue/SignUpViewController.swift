@@ -25,6 +25,10 @@ class SignUpViewController: UIViewController {
         
         self.SetBackground()
         
+//        view.addSubview(inputcontainerview)
+//        Setupinputconatinerview()
+        
+        
         view.addSubview(ScrollView)
         ScrollViewConstraints()
         
@@ -33,13 +37,16 @@ class SignUpViewController: UIViewController {
         self.edgesForExtendedLayout = []
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         
         
     }
+    
+    
+ 
 
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -57,6 +64,8 @@ class SignUpViewController: UIViewController {
         scrollview.keyboardDismissMode = .onDrag
         scrollview.showsVerticalScrollIndicator = true
         scrollview.translatesAutoresizingMaskIntoConstraints = false
+        scrollview.showsVerticalScrollIndicator = true
+       
         return scrollview
         
     }()
@@ -64,12 +73,11 @@ class SignUpViewController: UIViewController {
     func ScrollViewConstraints()
     {
         ScrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-      //  ScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        // ScrollView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         ScrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-      //  ScrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-        ScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         ScrollView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2).isActive = true
-        
+//        ScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        ScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         ScrollView.addSubview(inputcontainerview)
         Setupinputconatinerview()
@@ -97,19 +105,45 @@ class SignUpViewController: UIViewController {
     
     func Setupinputconatinerview()
     {
-        inputcontainerview.centerXAnchor.constraint(equalTo: ScrollView.centerXAnchor).isActive = true
+         inputcontainerview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
        // inputcontainerview.centerYAnchor.constraint(equalTo: ScrollView.centerYAnchor).isActive = true
-        inputcontainerview.widthAnchor.constraint(equalTo: ScrollView.widthAnchor, constant: -24).isActive = true
+        // inputcontainerview.widthAnchor.constraint(equalTo: ScrollView.widthAnchor, constant: -24).isActive = true
        // inputcontainerview.heightAnchor.constraint(equalTo: ScrollView.heightAnchor, constant: -24).isActive = true
-        inputcontainerview.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -24).isActive = true
-        inputcontainerview.topAnchor.constraint(equalTo: ScrollView.topAnchor, constant: 20).isActive = true
+        inputcontainerview.heightAnchor.constraint(equalTo: ScrollView.heightAnchor).isActive = true
+        inputcontainerview.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         
-        inputcontainerview.addSubview(EmailTextField)
-        EmailTextFieldConstraints()
         
         
         inputcontainerview.addSubview(NameTextField)
         NameTextFieldConstraints()
+        
+        inputcontainerview.addSubview(EmailTextField)
+        EmailTextFieldConstraints()
+        
+        inputcontainerview.addSubview(PasswordTextField)
+        PasswordTextFieldConstraints()
+        
+        inputcontainerview.addSubview(PhoneTextField)
+        PhoneTextFieldConstraints()
+        
+        inputcontainerview.addSubview(CityTextField)
+        CityTextFieldConstraints()
+        
+        inputcontainerview.addSubview(ChooseBloodTypeLabel)
+        ChooseBloodTypeLabelConstraints()
+        
+        inputcontainerview.addSubview(BloodTypeControl)
+        BloodTypeSegmentConstraints()
+        
+        inputcontainerview.addSubview(isDonorLabel)
+        isDonorLabelConstraints()
+        
+        inputcontainerview.addSubview(isDonorControl)
+        isDonorSegmentConstraints()
+       
+        inputcontainerview.addSubview(RegisterButton)
+        RegisterButtonConstraints()
+        
     }
     
     
@@ -165,6 +199,7 @@ class SignUpViewController: UIViewController {
         emailtf.layer.backgroundColor = UIColor.darkGray.cgColor
         emailtf.translatesAutoresizingMaskIntoConstraints = false
         emailtf.autocorrectionType = .no
+        emailtf.keyboardType = UIKeyboardType.emailAddress
         
         // The rounded corners were hiding the text , this block of code indents the text to the left
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
@@ -178,6 +213,8 @@ class SignUpViewController: UIViewController {
     func EmailTextFieldConstraints()
     {
         EmailTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        
+        // Maintaning a gap of 15 px between Textfields of height 40 px
         EmailTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 65).isActive = true
         EmailTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
         EmailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -186,47 +223,283 @@ class SignUpViewController: UIViewController {
     }
 
     
+    // Password Text Field
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func keyboardWillShow(notification:NSNotification)
-    {
-        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+    let PasswordTextField: UITextField = {
+        let pwtf = UITextField()
         
-        var contentInset:UIEdgeInsets = self.ScrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
-        self.ScrollView.contentInset = contentInset
-    }
+        
+        pwtf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName: UIColor.lightText])
+        pwtf.textColor = UIColor.white
+        pwtf.isSecureTextEntry = true
+        pwtf.layer.borderWidth = 1.2
+        pwtf.layer.borderColor = UIColor.white.cgColor
+        pwtf.layer.cornerRadius = 20
+        pwtf.layer.backgroundColor = UIColor.darkGray.cgColor
+        pwtf.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        // The rounded corners were hiding the text , this block of code indents the text to the left
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        pwtf.leftViewMode = UITextFieldViewMode.always
+        pwtf.leftView = spacerView
+        
+        
+        return pwtf
+    }()
     
-    func keyboardWillHide(notification:NSNotification)
+    
+    
+    func PasswordTextFieldConstraints()
     {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        self.ScrollView.contentInset = contentInset
+        PasswordTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        
+        // Maintaning a gap of 15 px between Textfields of height 40 px
+        PasswordTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 120).isActive = true
+        PasswordTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+        PasswordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        
     }
     
-   
+    
+    
+    // Phone Number Text Field
+    
+    
+    let PhoneTextField: UITextField = {
+        let tf = UITextField()
+        
+        tf.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes: [NSForegroundColorAttributeName: UIColor.lightText])
+        tf.textColor = UIColor.white
+        tf.layer.borderWidth = 1.2
+        tf.layer.borderColor = UIColor.white.cgColor
+        tf.layer.cornerRadius = 20
+        tf.layer.backgroundColor = UIColor.darkGray.cgColor
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.autocorrectionType = .no
+        tf.keyboardType = UIKeyboardType.numberPad
+        
+        
+        
+        // The rounded corners were hiding the text , this block of code indents the text to the left
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        tf.leftViewMode = UITextFieldViewMode.always
+        tf.leftView = spacerView
+        
+        
+        return tf
+    }()
+
+    
+    func PhoneTextFieldConstraints()
+    {
+        PhoneTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        
+        // Maintaning a gap of 15 px between Textfields of height 40 px
+        PhoneTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 175).isActive = true
+        PhoneTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+        PhoneTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        
+    }
+    
+    
+    
+    // City Text Field
+    
+    
+    
+    let CityTextField: UITextField = {
+        let tf = UITextField()
+        
+        tf.attributedPlaceholder = NSAttributedString(string: "City", attributes: [NSForegroundColorAttributeName: UIColor.lightText])
+        tf.textColor = UIColor.white
+        tf.layer.borderWidth = 1.2
+        tf.layer.borderColor = UIColor.white.cgColor
+        tf.layer.cornerRadius = 20
+        tf.layer.backgroundColor = UIColor.darkGray.cgColor
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.autocorrectionType = .no
+        
+        // The rounded corners were hiding the text , this block of code indents the text to the left
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        tf.leftViewMode = UITextFieldViewMode.always
+        tf.leftView = spacerView
+        
+        
+        return tf
+    }()
+    
+    
+    
+    func CityTextFieldConstraints()
+    {
+        CityTextField.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        
+        // Maintaning a gap of 15 px between Textfields of height 40 px
+        CityTextField.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 230).isActive = true
+        CityTextField.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+        CityTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        
+    }
+    
+    
+    // Choose Blood Type Label
+    
+    let ChooseBloodTypeLabel: UILabel =
+    {
+        let label = UILabel()
+        label.text = "Choose Your Blood Type"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
+    
+    
+    func ChooseBloodTypeLabelConstraints()
+    {
+        ChooseBloodTypeLabel.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        ChooseBloodTypeLabel.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 280).isActive = true
+        ChooseBloodTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        ChooseBloodTypeLabel.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+    }
+    
+    
+    
+    
+    // Blood Type Segmented Control
+    
+    let BloodTypeControl: UISegmentedControl =
+    {
+        let sc = UISegmentedControl(items:["A+", "A-","B+", "B-", "O+", "O-", "AB+", "AB-"])
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.tintColor = UIColor.red
+       
+        return sc
+    }()
+    
+    
+    func BloodTypeSegmentConstraints()
+    {
+        BloodTypeControl.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        BloodTypeControl.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 320).isActive = true
+        BloodTypeControl.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+        BloodTypeControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    
+        
+    }
+    
+    
+    
+    // isDonor Label
+    
+    let isDonorLabel: UILabel =
+        {
+            let label = UILabel()
+            label.text = "Are you willing to be a donor ?"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textColor = UIColor.white
+            label.textAlignment = .center
+            
+            return label
+    }()
+    
+    
+    
+    func isDonorLabelConstraints()
+    {
+        isDonorLabel.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        isDonorLabel.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 360).isActive = true
+        isDonorLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        isDonorLabel.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+    }
+    
+    
+    // isDonor Segmented Control
+    
+    
+    let isDonorControl: UISegmentedControl =
+        {
+            let sc = UISegmentedControl(items:["Yes", "No"])
+            sc.translatesAutoresizingMaskIntoConstraints = false
+            sc.tintColor = UIColor.red
+            
+            return sc
+    }()
+    
+    
+    func isDonorSegmentConstraints()
+    {
+        isDonorControl.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        isDonorControl.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 400).isActive = true
+        isDonorControl.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -30).isActive = true
+        isDonorControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+    }
+    
+    
+    
+    
+    // Register User Button
+    
+    let RegisterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.red
+        // button.alpha = 0.6
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.white.withAlphaComponent(0.6).cgColor
+        button.setTitle("Register", for: .normal)
+        button.setTitleColor(UIColor.white.withAlphaComponent(1), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        
+       // button.addTarget(self, action: #selector(OpenSignUpScreen), for: .touchUpInside )
+        
+        
+        return button
+        
+    }()
+    
+    
+    func RegisterButtonConstraints()
+    {
+        RegisterButton.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
+        RegisterButton.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 455).isActive = true
+        RegisterButton.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -80).isActive = true
+        RegisterButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+    }
+
+    
+    
+    
+    
+//    func keyboardWillShow(_ notification:Notification)
+//    {
+//        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
+//        var userInfo = notification.userInfo!
+//        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+//        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+//        
+//        var contentInset:UIEdgeInsets = self.ScrollView.contentInset
+//        contentInset.bottom = keyboardFrame.size.height + 20
+//        self.ScrollView.contentInset = contentInset
+//    }
+//    
+//    func keyboardWillHide(_ notification:Notification)
+//    {
+//        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+//        self.ScrollView.contentInset = contentInset
+//    }
+//    
+//   
     
     
     

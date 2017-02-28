@@ -17,6 +17,7 @@
 		6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */; };
 		6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99601E5CF1FF0020B633 /* SetBackground.swift */; };
 		6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */; };
+		6CF0435E1E64AF460080EE2A /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF0435D1E64AF460080EE2A /* UsersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6C5E99601E5CF1FF0020B633 /* SetBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBackground.swift; sourceTree = "<group>"; };
 		6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
+		6CF0435D1E64AF460080EE2A /* UsersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		6C02B3E01E5B6F1F005BC230 /* Rogue */ = {
 			isa = PBXGroup;
 			children = (
+				6CF0435C1E64AF210080EE2A /* Models */,
 				6C5E995F1E5CF1E90020B633 /* Functions */,
 				6C02B4131E5B7E47005BC230 /* Controller */,
 				6C02B3E11E5B6F1F005BC230 /* AppDelegate.swift */,
@@ -148,6 +151,14 @@
 				6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */,
 			);
 			name = Functions;
+			sourceTree = "<group>";
+		};
+		6CF0435C1E64AF210080EE2A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6CF0435D1E64AF460080EE2A /* UsersModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,15 +229,18 @@
 				TargetAttributes = {
 					6C02B3DD1E5B6F1F005BC230 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					6C02B3F11E5B6F20005BC230 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6C02B3DD1E5B6F1F005BC230;
 					};
 					6C02B3FC1E5B6F20005BC230 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6C02B3DD1E5B6F1F005BC230;
 					};
@@ -289,6 +303,7 @@
 				6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */,
 				6C02B3E21E5B6F1F005BC230 /* AppDelegate.swift in Sources */,
 				6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */,
+				6CF0435E1E64AF460080EE2A /* UsersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,24 +446,38 @@
 		6C02B4071E5B6F20005BC230 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				ENABLE_BITCODE = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Rogue/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShivamRoy.Rogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "";
 			};
 			name = Debug;
 		};
 		6C02B4081E5B6F20005BC230 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				ENABLE_BITCODE = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Rogue/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ShivamRoy.Rogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				VALID_ARCHS = "";
 			};
 			name = Release;
 		};
