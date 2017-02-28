@@ -1,0 +1,6 @@
+framework module Pods_Rogue {
+  umbrella header "Pods-Rogue-umbrella.h"
+
+  export *
+  module * { export * }
+}

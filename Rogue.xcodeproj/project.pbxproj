@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61AB91156343CD08159815B1 /* Pods_Rogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE815EC622A473BC089CF7E1 /* Pods_Rogue.framework */; };
 		6C02B3E21E5B6F1F005BC230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B3E11E5B6F1F005BC230 /* AppDelegate.swift */; };
 		6C02B3E41E5B6F1F005BC230 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B3E31E5B6F1F005BC230 /* HomeViewController.swift */; };
 		6C02B3E91E5B6F1F005BC230 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C02B3E81E5B6F1F005BC230 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 		6C02B4021E5B6F20005BC230 /* RogueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B4011E5B6F20005BC230 /* RogueUITests.swift */; };
 		6C02B4151E5B7E6B005BC230 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */; };
 		6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */; };
+		6C2DA4E21E657C930096043D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C2DA4E11E657C920096043D /* GoogleService-Info.plist */; };
 		6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99601E5CF1FF0020B633 /* SetBackground.swift */; };
 		6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */; };
 		6CF0435E1E64AF460080EE2A /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF0435D1E64AF460080EE2A /* UsersModel.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		537580974835D0E8414B47A4 /* Pods-Rogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rogue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rogue/Pods-Rogue.release.xcconfig"; sourceTree = "<group>"; };
 		6C02B3DE1E5B6F1F005BC230 /* Rogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C02B3E11E5B6F1F005BC230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C02B3E31E5B6F1F005BC230 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +55,12 @@
 		6C02B4031E5B6F20005BC230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6C2DA4E11E657C920096043D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C5E99601E5CF1FF0020B633 /* SetBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBackground.swift; sourceTree = "<group>"; };
 		6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
 		6CF0435D1E64AF460080EE2A /* UsersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		DE815EC622A473BC089CF7E1 /* Pods_Rogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E291E411E02DCABA80A7E2E4 /* Pods-Rogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rogue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rogue/Pods-Rogue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61AB91156343CD08159815B1 /* Pods_Rogue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +96,8 @@
 				6C02B3F51E5B6F20005BC230 /* RogueTests */,
 				6C02B4001E5B6F20005BC230 /* RogueUITests */,
 				6C02B3DF1E5B6F1F005BC230 /* Products */,
+				84FFEEC8A1D522658F7DAE95 /* Pods */,
+				F9E886AAE496D138049FBD16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +121,7 @@
 				6C02B3E31E5B6F1F005BC230 /* HomeViewController.swift */,
 				6C02B3E81E5B6F1F005BC230 /* Assets.xcassets */,
 				6C02B3EA1E5B6F1F005BC230 /* LaunchScreen.storyboard */,
+				6C2DA4E11E657C920096043D /* GoogleService-Info.plist */,
 				6C02B3ED1E5B6F1F005BC230 /* Info.plist */,
 			);
 			path = Rogue;
@@ -161,6 +171,23 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		84FFEEC8A1D522658F7DAE95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E291E411E02DCABA80A7E2E4 /* Pods-Rogue.debug.xcconfig */,
+				537580974835D0E8414B47A4 /* Pods-Rogue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F9E886AAE496D138049FBD16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE815EC622A473BC089CF7E1 /* Pods_Rogue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C02B4061E5B6F20005BC230 /* Build configuration list for PBXNativeTarget "Rogue" */;
 			buildPhases = (
+				8BC2FC857BB69FD9540D3B33 /* [CP] Check Pods Manifest.lock */,
 				6C02B3DA1E5B6F1F005BC230 /* Sources */,
 				6C02B3DB1E5B6F1F005BC230 /* Frameworks */,
 				6C02B3DC1E5B6F1F005BC230 /* Resources */,
+				E39FB67F4FA4CAC128E3A037 /* [CP] Embed Pods Frameworks */,
+				D23B50E6DDCAC72CB028EFE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,6 +303,7 @@
 			files = (
 				6C02B3EC1E5B6F1F005BC230 /* LaunchScreen.storyboard in Resources */,
 				6C02B3E91E5B6F1F005BC230 /* Assets.xcassets in Resources */,
+				6C2DA4E21E657C930096043D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +322,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8BC2FC857BB69FD9540D3B33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D23B50E6DDCAC72CB028EFE8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rogue/Pods-Rogue-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E39FB67F4FA4CAC128E3A037 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rogue/Pods-Rogue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6C02B3DA1E5B6F1F005BC230 /* Sources */ = {
@@ -445,6 +524,7 @@
 		};
 		6C02B4071E5B6F20005BC230 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E291E411E02DCABA80A7E2E4 /* Pods-Rogue.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -464,6 +544,7 @@
 		};
 		6C02B4081E5B6F20005BC230 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 537580974835D0E8414B47A4 /* Pods-Rogue.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
