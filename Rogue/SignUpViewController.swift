@@ -544,6 +544,10 @@ class SignUpViewController: UIViewController {
                 }
                 
                 print("Saved User Successfully")
+                
+                let Homeviewcontroller = HomeViewController()
+                let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
+                self.present(Homeviewwithnavigation, animated: true, completion: nil)
             })
         })
     }

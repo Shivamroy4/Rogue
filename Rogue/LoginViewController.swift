@@ -49,9 +49,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
            
 
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//            
+//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
             
         
         }
@@ -303,20 +303,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    func keyboardWillShow()
-    {
-        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20).isActive = true
-        
-        LogoImageView.isHidden = true
-    }
-
-    
-    func keyboardWillHide()
-    {
-        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        LogoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        LogoImageView.isHidden = false
-    }
+//    func keyboardWillShow()
+//    {
+//        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20).isActive = true
+//        
+//        LogoImageView.isHidden = true
+//    }
+//
+//    
+//    func keyboardWillHide()
+//    {
+//        inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+//        LogoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+//        LogoImageView.isHidden = false
+//    }
     
     
 
