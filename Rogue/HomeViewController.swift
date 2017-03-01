@@ -17,6 +17,14 @@ class HomeViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(HandleLogout))
         
+        
+        // If User is not logged in
+        
+        if FIRAuth.auth()?.currentUser?.uid == nil
+        {
+            performSelector(inBackground: #selector(HandleLogout), with: nil)
+        }
+        
     }
     
     
@@ -28,6 +36,19 @@ class HomeViewController: UIViewController {
 
     func HandleLogout()
     {
+        // Logout User
+        
+        do
+        {
+            try FIRAuth.auth()?.signOut()
+        }
+        catch let logoutError
+        {
+            print(logoutError)
+        }
+        
+        
+        
         let LoginController = LoginViewController()
 //        let LoginControllerwithNaviagtion = UINavigationController(rootViewController: LoginController)
 //        present(LoginControllerwithNaviagtion, animated: true, completion: nil)

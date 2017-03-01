@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -155,6 +156,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailtf.translatesAutoresizingMaskIntoConstraints = false
         emailtf.autocorrectionType = .no
         emailtf.keyboardType = UIKeyboardType.emailAddress
+        emailtf.autocapitalizationType = .none
         
         // The rounded corners were hiding the text , this block of code indents the text to the left
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
@@ -237,6 +239,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         button.setTitleColor(UIColor.white.withAlphaComponent(2), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        button.addTarget(self, action: #selector(LoginUser), for: .touchUpInside )
+        
+        
         return button
         
     }()
@@ -249,7 +255,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         LoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
-    
+    func LoginUser()
+    {
+        
+        guard let email = EmailTextField.text, let password = PasswordTextField.text
+            else
+        {
+           print("Email or Password incorrect")
+            return
+        }
+        
+        
+        
+       FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, loginerror) in
+        
+        if loginerror != nil
+        {
+           print(loginerror as Any)
+            return
+        }
+        
+        print("user logged in")
+        print(FIRAuth.auth()?.currentUser?.uid as Any)
+        self.dismiss(animated: true, completion: nil)
+       })
+    }
     
     
     
