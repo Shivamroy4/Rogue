@@ -20,14 +20,34 @@ class HomeViewController: UIViewController {
         
         // If User is not logged in
         
-        if FIRAuth.auth()?.currentUser?.uid == nil
-        {
-            performSelector(inBackground: #selector(HandleLogout), with: nil)
-        }
+        
+        // If this poses any problem then call it from viewillapear
+//        if FIRAuth.auth()?.currentUser?.uid == nil
+//        {
+//            performSelector(inBackground: #selector(HandleLogout), with: nil)
+//        }
         
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+       
+        if FIRAuth.auth()?.currentUser?.uid == nil
+        {
+            performSelector(inBackground: #selector(HandleLogout), with: nil)
+        }
+        else
+        {
+            let uid = FIRAuth.auth()?.currentUser?.uid
+            FIRDatabase.database().reference().child("Users").child(uid!).observe(.value, with: { (snapshot) in
+                
+                
+                print(snapshot)
+                
+            }, withCancel: nil)
+        }
+
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

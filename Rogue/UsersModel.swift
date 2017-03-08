@@ -15,7 +15,7 @@ extension SignUpViewController
     var Name: String?
     var Email: String?
     var Password: String?
-    var PhoneNumber: String?
+    var Phone: String?
     var  City: String?
     var BloodType: String?
     var isDonor: Bool?
@@ -39,7 +39,7 @@ extension SignUpViewController
             self.Name = Name
             self.Email = Email
             self.Password = Password
-            self.PhoneNumber = Phone
+            self.Phone = Phone
             self.City = City
             self.isDonor = isDonor
             self.BloodType = BloodType
