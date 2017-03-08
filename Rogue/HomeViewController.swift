@@ -44,6 +44,12 @@ class HomeViewController: UIViewController {
                 
                 print(snapshot)
                 
+                // Display User Name on Navigation Bar
+                
+                if let dictionary = snapshot.value as? [String: AnyObject]
+                {
+                    self.navigationItem.title = dictionary["Name"] as? String
+                }
             }, withCancel: nil)
         }
 
