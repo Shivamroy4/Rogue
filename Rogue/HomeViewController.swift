@@ -26,8 +26,6 @@ class HomeViewController: UIViewController  {
         // Prevent Navigation Bar form covering the view
         self.edgesForExtendedLayout = []
 
-//        self.CityPicker.dataSource = self
-//        self.CityPicker.delegate = self
         
         view.addSubview(inputcontainerview)
         Setupinputconatinerview()
@@ -112,8 +110,7 @@ class HomeViewController: UIViewController  {
         inputcontainerview.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         inputcontainerview.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
     
-       //        inputcontainerview.addSubview(SelectBloodTypeLabel)
-//        SelectBloodTypeLabelConstraints()
+ 
         
         inputcontainerview.addSubview(BloodTypeControl)
         BloodTypeSegmentConstraints()
@@ -121,42 +118,12 @@ class HomeViewController: UIViewController  {
         
         inputcontainerview.addSubview(SearchButton)
         SearchButtonConstraints()
+
         
-//        inputcontainerview.addSubview(SelectCityLabel)
-//        SelectCityLabelConstraints()
-        
-        
-//        inputcontainerview.addSubview(CityPicker)
-//        CityPickerConstraints()
     }
     
    
-    
-    
-    // Select Blood Type Label 
-    
-    
-//    let SelectBloodTypeLabel: UILabel =
-//    {
-//        let label = UILabel()
-//        label.text = "Select Blood Type Required"
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textAlignment = .center
-//        label.textColor = UIColor.white
-//        
-//        return label
-//        
-//    }()
-//
-//    func SelectBloodTypeLabelConstraints()
-//    {
-//    
-//        SelectBloodTypeLabel.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
-//        SelectBloodTypeLabel.topAnchor.constraint(equalTo: inputcontainerview.topAnchor, constant: 20).isActive = true
-//        SelectBloodTypeLabel.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor).isActive = true
-//        SelectBloodTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//    }
-//    
+
     
     
     
@@ -233,16 +200,23 @@ class HomeViewController: UIViewController  {
     {
         
             
-       let bloodint: Int = BloodTypeControl.selectedSegmentIndex
-       
+
         
-        if BloodTypeControl.isMomentary == true
+        if BloodTypeControl.selectedSegmentIndex == -1
         {
-            let bloodtype: String = BloodTypeControl.titleForSegment(at: bloodint)!
-            print(bloodtype)
-        }
-        else{
+            
+            
             print("Select Blood Type")
+            
+        }
+        else
+        {
+            
+                let bloodint: Int = BloodTypeControl.selectedSegmentIndex
+                let bloodtype: String = BloodTypeControl.titleForSegment(at: bloodint)!
+            
+                print(bloodtype)
+            
         }
         
        
@@ -251,53 +225,7 @@ class HomeViewController: UIViewController  {
     }
     
     
-    // Select Blood Type Label
-    
-    
-//    let SelectCityLabel: UILabel =
-//        {
-//            let label = UILabel()
-//            label.text = "Select City"
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            label.textAlignment = .center
-//            label.textColor = UIColor.white
-//            
-//            return label
-//            
-//    }()
-//    
-//    func SelectCityLabelConstraints()
-//    {
-//        
-//        SelectCityLabel.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
-//        SelectCityLabel.topAnchor.constraint(equalTo: BloodTypeControl.bottomAnchor, constant: 20).isActive = true
-//        SelectCityLabel.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor).isActive = true
-//        SelectCityLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//    }
-    
 
-    
-    // City Picker
-    
-//    let CityPicker: UIPickerView =
-//    {
-//       let pick = UIPickerView()
-//       
-//      
-//        
-//        
-//        return pick
-//        
-//    }()
-//
-//    
-//    func CityPickerConstraints()
-//    {
-//        CityPicker.centerXAnchor.constraint(equalTo: inputcontainerview.centerXAnchor).isActive = true
-//        CityPicker.topAnchor.constraint(equalTo: SelectCityLabel.bottomAnchor, constant: 10).isActive = true
-//        CityPicker.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor, constant: -20).isActive = true
-//        CityPicker.heightAnchor.constraint(equalToConstant: 60).isActive = true
-//    }
 
 
 }
