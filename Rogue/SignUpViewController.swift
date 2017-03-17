@@ -545,14 +545,20 @@ class SignUpViewController: UIViewController {
                 
                 print("Saved User Successfully")
                 
-                let Homeviewcontroller = HomeViewController()
-                let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
-                self.present(Homeviewwithnavigation, animated: true, completion: nil)
+                
+                self.ShowHomeScreen()
+                
             })
         })
     }
     
-    
+    func ShowHomeScreen()
+    {
+        let Homeviewcontroller = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
+         let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
+         self.present(Homeviewwithnavigation, animated: true, completion: nil)
+       // navigationController?.pushViewController(Homeviewcontroller, animated: true)
+    }
     
 //    func keyboardWillShow(_ notification:Notification)
 //    {
@@ -581,8 +587,11 @@ class SignUpViewController: UIViewController {
     
     func HandleCancel()
     {
+        
         let LoginController = LoginViewController()
 //        let LoginControllerwithNaviagtion = UINavigationController(rootViewController: LoginController)
+        
+        
         present(LoginController, animated: true, completion: nil)
         
     }

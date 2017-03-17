@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController  {
+class HomeViewController: UICollectionViewController  {
 
     override func viewDidLoad()
     {
@@ -18,14 +18,19 @@ class HomeViewController: UIViewController  {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(HandleLogout))
         
         self.SetBackground()
+        
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.tintColor = UIColor.red.withAlphaComponent(0.6)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red.withAlphaComponent(0.6)]
         
         
+        collectionView?.backgroundColor = UIColor.blue
+        
         // Prevent Navigation Bar form covering the view
         self.edgesForExtendedLayout = []
 
+                
+        
         
         view.addSubview(inputcontainerview)
         Setupinputconatinerview()

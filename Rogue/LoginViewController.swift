@@ -277,12 +277,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         print("user logged in")
         print(FIRAuth.auth()?.currentUser?.uid as Any)
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        
+        self.ShowHomeScreen()
+
        })
     }
     
     
-    
+    func ShowHomeScreen()
+    {
+        let Homeviewcontroller = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
+         let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
+         self.present(Homeviewwithnavigation, animated: true, completion: nil)
+        //navigationController?.pushViewController(Homeviewcontroller, animated: true)
+    }
     
     
     
