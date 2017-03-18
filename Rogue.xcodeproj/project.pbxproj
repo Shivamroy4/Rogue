@@ -16,6 +16,7 @@
 		6C02B4021E5B6F20005BC230 /* RogueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B4011E5B6F20005BC230 /* RogueUITests.swift */; };
 		6C02B4151E5B7E6B005BC230 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */; };
 		6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */; };
+		6C0E214D1E7D195900D246AA /* DonorListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */; };
 		6C2DA4E21E657C930096043D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C2DA4E11E657C920096043D /* GoogleService-Info.plist */; };
 		6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99601E5CF1FF0020B633 /* SetBackground.swift */; };
 		6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */; };
@@ -55,6 +56,7 @@
 		6C02B4031E5B6F20005BC230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonorListCollectionViewController.swift; sourceTree = "<group>"; };
 		6C2DA4E11E657C920096043D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C5E99601E5CF1FF0020B633 /* SetBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBackground.swift; sourceTree = "<group>"; };
 		6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */,
 				6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */,
+				6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */,
 				6C02B4151E5B7E6B005BC230 /* LoginViewController.swift in Sources */,
 				6C02B3E41E5B6F1F005BC230 /* HomeViewController.swift in Sources */,
+				6C0E214D1E7D195900D246AA /* DonorListCollectionViewController.swift in Sources */,
 				6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */,
 				6C02B3E21E5B6F1F005BC230 /* AppDelegate.swift in Sources */,
 				6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */,

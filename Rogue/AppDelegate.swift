@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
     
         
-        window?.rootViewController = UINavigationController(rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         return true
     }
 

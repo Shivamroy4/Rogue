@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UICollectionViewController  {
+class HomeViewController: UIViewController  {
 
+    
+    
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -24,7 +28,7 @@ class HomeViewController: UICollectionViewController  {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red.withAlphaComponent(0.6)]
         
         
-        collectionView?.backgroundColor = UIColor.blue
+      
         
         // Prevent Navigation Bar form covering the view
         self.edgesForExtendedLayout = []
@@ -34,6 +38,15 @@ class HomeViewController: UICollectionViewController  {
         
         view.addSubview(inputcontainerview)
         Setupinputconatinerview()
+        
+//        view.addSubview(CollectionView)
+//        SetupCollectionView()
+        
+        
+        
+        
+        
+        
   
     }
     
@@ -111,7 +124,8 @@ class HomeViewController: UICollectionViewController  {
     func Setupinputconatinerview()
     {
         inputcontainerview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputcontainerview.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        // inputcontainerview.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        inputcontainerview.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         inputcontainerview.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         inputcontainerview.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
     
@@ -222,15 +236,43 @@ class HomeViewController: UICollectionViewController  {
             
                 print(bloodtype)
             
+            let Donorlistviewcontroller = DonorListCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            let Donorviewwithnavigation = UINavigationController(rootViewController: Donorlistviewcontroller)
+            self.present(Donorviewwithnavigation, animated: true, completion: nil)
+            
+            
         }
         
        
+        
+        
       
        
     }
     
+    // Collection View
     
-
+//    let CollectionView: UICollectionView =
+//    {
+//        let layout = UICollectionViewFlowLayout()
+//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        cv.backgroundColor = UIColor.green
+//        return cv
+//    }()
+//
+//    func SetupCollectionView()
+//    {
+//        CollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        CollectionView.topAnchor.constraint(equalTo: inputcontainerview.bottomAnchor, constant: 10).isActive = true
+//        CollectionView.widthAnchor.constraint(equalTo: inputcontainerview.widthAnchor).isActive = true
+//        CollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.60).isActive = true
+//
+//        
+//    }
+//    
+    
+    
+    
 
 
 }

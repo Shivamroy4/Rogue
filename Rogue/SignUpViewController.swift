@@ -554,7 +554,7 @@ class SignUpViewController: UIViewController {
     
     func ShowHomeScreen()
     {
-        let Homeviewcontroller = HomeViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let Homeviewcontroller = HomeViewController()
          let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
          self.present(Homeviewwithnavigation, animated: true, completion: nil)
        // navigationController?.pushViewController(Homeviewcontroller, animated: true)
