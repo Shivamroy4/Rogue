@@ -30,7 +30,20 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     {
         let Homeviewcontroller = HomeViewController()
         let Homeviewwithnavigation = UINavigationController(rootViewController: Homeviewcontroller)
-        self.present(Homeviewwithnavigation, animated: true, completion: nil)
+//        self.present(Homeviewwithnavigation, animated: true, completion: nil)
+        
+        
+        
+        // Animated custom  Present ViewController
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        view.window!.layer.add(transition, forKey: kCATransition)
+        present(Homeviewwithnavigation, animated: false, completion: nil)
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

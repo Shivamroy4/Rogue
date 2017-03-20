@@ -238,7 +238,16 @@ class HomeViewController: UIViewController  {
             
             let Donorlistviewcontroller = DonorListCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
             let Donorviewwithnavigation = UINavigationController(rootViewController: Donorlistviewcontroller)
-            self.present(Donorviewwithnavigation, animated: true, completion: nil)
+           // self.present(Donorviewwithnavigation, animated: true, completion: nil)
+            
+            // Animated custom  Present ViewController
+            
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = kCATransitionPush
+            transition.subtype = kCATransitionFromRight
+            view.window!.layer.add(transition, forKey: kCATransition)
+            present(Donorviewwithnavigation, animated: false, completion: nil)
             
             
         }
