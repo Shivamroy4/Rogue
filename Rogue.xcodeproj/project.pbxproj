@@ -18,9 +18,10 @@
 		6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */; };
 		6C0E214D1E7D195900D246AA /* DonorListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */; };
 		6C2DA4E21E657C930096043D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C2DA4E11E657C920096043D /* GoogleService-Info.plist */; };
+		6C3546311EC27FF600E1C9B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3546301EC27FF600E1C9B1 /* User.swift */; };
+		6C4574631E8C3EF7001965DC /* DonorCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4574621E8C3EF7001965DC /* DonorCellController.swift */; };
 		6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99601E5CF1FF0020B633 /* SetBackground.swift */; };
 		6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */; };
-		6CF0435E1E64AF460080EE2A /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF0435D1E64AF460080EE2A /* UsersModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +59,10 @@
 		6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonorListCollectionViewController.swift; sourceTree = "<group>"; };
 		6C2DA4E11E657C920096043D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C3546301EC27FF600E1C9B1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6C4574621E8C3EF7001965DC /* DonorCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonorCellController.swift; sourceTree = "<group>"; };
 		6C5E99601E5CF1FF0020B633 /* SetBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBackground.swift; sourceTree = "<group>"; };
 		6C5E99621E5CF2710020B633 /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
-		6CF0435D1E64AF460080EE2A /* UsersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		DE815EC622A473BC089CF7E1 /* Pods_Rogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E291E411E02DCABA80A7E2E4 /* Pods-Rogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rogue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rogue/Pods-Rogue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				6C02B4141E5B7E6B005BC230 /* LoginViewController.swift */,
 				6C0688121E5ED6AE00122A02 /* SignUpViewController.swift */,
 				6C0E214C1E7D195900D246AA /* DonorListCollectionViewController.swift */,
+				6C4574621E8C3EF7001965DC /* DonorCellController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,7 +172,7 @@
 		6CF0435C1E64AF210080EE2A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6CF0435D1E64AF460080EE2A /* UsersModel.swift */,
+				6C3546301EC27FF600E1C9B1 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -382,11 +385,12 @@
 				6C0688131E5ED6AE00122A02 /* SignUpViewController.swift in Sources */,
 				6C02B4151E5B7E6B005BC230 /* LoginViewController.swift in Sources */,
 				6C02B3E41E5B6F1F005BC230 /* HomeViewController.swift in Sources */,
+				6C4574631E8C3EF7001965DC /* DonorCellController.swift in Sources */,
 				6C0E214D1E7D195900D246AA /* DonorListCollectionViewController.swift in Sources */,
 				6C5E99611E5CF1FF0020B633 /* SetBackground.swift in Sources */,
 				6C02B3E21E5B6F1F005BC230 /* AppDelegate.swift in Sources */,
 				6C5E99631E5CF2710020B633 /* DismissKeyboard.swift in Sources */,
-				6CF0435E1E64AF460080EE2A /* UsersModel.swift in Sources */,
+				6C3546311EC27FF600E1C9B1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

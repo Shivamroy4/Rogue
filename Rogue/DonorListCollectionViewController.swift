@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 class DonorListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -16,14 +17,19 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     {
         
         
+        let donors = [User]()
         
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        collectionView?.register(DonorCell.self, forCellWithReuseIdentifier: "Cell")
         
         navigationController?.navigationBar.barStyle = .blackTranslucent
         navigationController?.navigationBar.tintColor = UIColor.red.withAlphaComponent(0.6)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red.withAlphaComponent(0.6)]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "< Back", style: .plain, target: self, action: #selector(ShowHomeView))
+        
+        
+        fetchDonors()
     }
     
     func ShowHomeView()
@@ -55,7 +61,7 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
     
-        cell.backgroundColor = UIColor.blue
+        // cell.backgroundColor = UIColor.blue
         return cell
     }
     
@@ -64,6 +70,108 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         
         
         
-        return CGSize(width: view.frame.width, height: view.frame.height/6)
+        return CGSize(width: view.frame.width, height: view.frame.height/4.5)
+    }
+    
+    
+}
+
+
+
+
+ func fetchDonors()
+
+{
+    FIRDatabase.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
+        
+       
+        
+        
+        if let dictionary = snapshot.value as? [String: Any]
+        {
+            let user = User()
+            
+            user.Name = dictionary["Name"] as! String?
+            user.Email = dictionary["Email"] as! String?
+            user.Phone = dictionary["Phone"] as! String?
+            user.City = dictionary["City"] as! String?
+            user.BloodType = dictionary["BloodType"] as! String?
+            user.isDonor = dictionary["isDonor"] as! Bool?
+            
+            print(user.Name!, user.Email! , user.Phone! , user.City! , user.BloodType! , user.isDonor)
+            
+            
+        }
+        
+            
+            
+            
+        
+        
+       // print(snapshot)
+    }, withCancel: nil)
+}
+
+
+
+
+
+class DonorCell: UICollectionViewCell {
+    
+    
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        
+        
+        SetupViews()
+    }
+    
+    
+    
+    let NameLabel: UILabel =
+        {
+            let label = UILabel()
+            label.backgroundColor = UIColor.green
+           // label.text = "Are you willing to be a donor ?"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textColor = UIColor.white
+            label.textAlignment = .center
+            
+            
+            return label
+    }()
+    
+    func NameLabelConstraints()
+    {
+        
+        
+        NameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
+        NameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        NameLabel.widthAnchor.constraint(equalToConstant: 280).isActive = true
+        NameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    
+    func SetupViews()
+    {
+        backgroundColor = UIColor.blue
+        addSubview(NameLabel)
+        NameLabelConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+
+
+
+
+
+
+
+
+
