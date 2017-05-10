@@ -237,9 +237,14 @@ class HomeViewController: UIViewController  {
                 print(bloodtype)
             
             let Donorlistviewcontroller = DonorListCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-            let Donorviewwithnavigation = UINavigationController(rootViewController: Donorlistviewcontroller)
-           // self.present(Donorviewwithnavigation, animated: true, completion: nil)
+           let Donorviewwithnavigation = UINavigationController(rootViewController: Donorlistviewcontroller)
             
+          
+            
+            // self.present(Donorviewwithnavigation, animated: true, completion: nil)
+            
+            
+
             // Animated custom  Present ViewController
             
             let transition = CATransition()
@@ -249,6 +254,9 @@ class HomeViewController: UIViewController  {
             view.window!.layer.add(transition, forKey: kCATransition)
             present(Donorviewwithnavigation, animated: false, completion: nil)
             
+         //  let transferview = storyboard?.instantiateViewController(withIdentifier: "DonorListCollectionViewController") as! DonorListCollectionViewController
+          //  Donorviewwithnavigation.bloodsearched = bloodtype
+          //  navigationController?.pushViewController(Donorviewwithnavigation, animated: false)
             
         }
         

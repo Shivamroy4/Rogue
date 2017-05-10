@@ -12,12 +12,17 @@ import Firebase
 
 class DonorListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var donors = [User]()
+  
+    var bloodsearched = "A+"
+    
+    
     
     override func viewDidLoad()
     {
         
         
-        let donors = [User]()
+        
         
         
         collectionView?.register(DonorCell.self, forCellWithReuseIdentifier: "Cell")
@@ -29,8 +34,74 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "< Back", style: .plain, target: self, action: #selector(ShowHomeView))
         
         
+        print(bloodsearched)
         fetchDonors()
     }
+    
+    
+    
+    
+    
+    func fetchDonors()
+        
+    {
+        FIRDatabase.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
+            
+            
+            
+            
+            if let dictionary = snapshot.value as? [String: Any]
+            {
+                let user = User()
+                
+                user.Name = dictionary["Name"] as! String?
+                user.Email = dictionary["Email"] as! String?
+                user.Phone = dictionary["Phone"] as! String?
+                user.City = dictionary["City"] as! String?
+                user.BloodType = dictionary["BloodType"] as! String?
+                user.isDonor = dictionary["isDonor"] as! Bool?
+                
+                
+                
+                self.donors.append(user)
+                
+                print(self.donors)
+                
+                
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+                
+                
+                
+                
+                
+                // print(user.Name!, user.Email! , user.Phone! , user.City! , user.BloodType! , user.isDonor!)
+                
+                
+            }
+            
+            
+            
+            
+            
+            
+            // print(snapshot)
+        }, withCancel: nil)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func ShowHomeView()
     {
@@ -53,12 +124,14 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return donors.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DonorCell
+        
+        cell.donor = donors[indexPath.row]
         
     
         // cell.backgroundColor = UIColor.blue
@@ -79,38 +152,6 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
 
 
 
- func fetchDonors()
-
-{
-    FIRDatabase.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
-        
-       
-        
-        
-        if let dictionary = snapshot.value as? [String: Any]
-        {
-            let user = User()
-            
-            user.Name = dictionary["Name"] as! String?
-            user.Email = dictionary["Email"] as! String?
-            user.Phone = dictionary["Phone"] as! String?
-            user.City = dictionary["City"] as! String?
-            user.BloodType = dictionary["BloodType"] as! String?
-            user.isDonor = dictionary["isDonor"] as! Bool?
-            
-            print(user.Name!, user.Email! , user.Phone! , user.City! , user.BloodType! , user.isDonor)
-            
-            
-        }
-        
-            
-            
-            
-        
-        
-       // print(snapshot)
-    }, withCancel: nil)
-}
 
 
 
@@ -118,6 +159,14 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
 
 class DonorCell: UICollectionViewCell {
     
+    
+    
+    var donor: User?
+    {
+        didSet{
+        NameLabel.text = donor?.Name
+        }
+    }
     
     override init(frame: CGRect)
     {
