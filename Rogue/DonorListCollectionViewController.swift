@@ -14,10 +14,11 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     
     var donors = [User]()
     
-    var filtereddonors = [User]()
+    var filtereddonors = Set<User>()
   
     var bloodsearched = "A+"
     
+    var  donorset = [User]()
     
     
     override func viewDidLoad()
@@ -108,7 +109,7 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         {
             if(donor.BloodType == bloodsearched && donor.isDonor == true)
             {
-                filtereddonors.append(donor)
+                filtereddonors.insert(donor)
             }
         
         }
@@ -116,6 +117,7 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     
     func printDonors()
     {
+        donorset = Array(filtereddonors)
         for donor in filtereddonors
         {
             
@@ -150,8 +152,9 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return donors.count
         
-        return filtereddonors.count
-    }
+        //return filtereddonors.count
+        
+        return filtereddonors.count    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -159,7 +162,9 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         
      //   cell.donor = donors[indexPath.row]
         
-        cell.donor = filtereddonors[indexPath.row]
+        
+        
+        cell.donor = donorset[indexPath.row]
         
     
         // cell.backgroundColor = UIColor.blue
@@ -213,7 +218,7 @@ class DonorCell: UICollectionViewCell {
         {
             let label = UILabel()
             label.backgroundColor = UIColor.green
-           // label.text = "Are you willing to be a donor ?"
+            label.text = "Name"
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = UIColor.white
             label.textAlignment = .center
