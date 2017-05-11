@@ -237,7 +237,11 @@ class HomeViewController: UIViewController  {
                 print(bloodtype)
             
             let Donorlistviewcontroller = DonorListCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            
+            Donorlistviewcontroller.bloodsearched = bloodtype
+            
            let Donorviewwithnavigation = UINavigationController(rootViewController: Donorlistviewcontroller)
+            
             
           
             
