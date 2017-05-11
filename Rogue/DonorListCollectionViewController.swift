@@ -13,6 +13,8 @@ import Firebase
 class DonorListCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var donors = [User]()
+    
+    var filtereddonors = [User]()
   
     var bloodsearched = "A+"
     
@@ -36,6 +38,8 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
         
         print(bloodsearched)
         fetchDonors()
+        
+       
     }
     
     
@@ -65,7 +69,7 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
                 
                 self.donors.append(user)
                 
-                print(self.donors)
+              //  print(self.donors)
                 
                 
                 DispatchQueue.main.async {
@@ -82,12 +86,15 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
             }
             
             
-            
+            self.filterDonors()
+            self.printDonors()
             
             
             
             // print(snapshot)
         }, withCancel: nil)
+        
+        
     }
     
     
@@ -95,10 +102,27 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     
     
     
+    func filterDonors()
+    {
+        for donor in donors
+        {
+            if(donor.BloodType == bloodsearched && donor.isDonor == true)
+            {
+                filtereddonors.append(donor)
+            }
+        
+        }
+    }
     
-    
-    
-    
+    func printDonors()
+    {
+        for donor in filtereddonors
+        {
+            
+            print("here")
+            print(donor.Name!)
+        }
+    }
     
     
     
@@ -124,14 +148,18 @@ class DonorListCollectionViewController: UICollectionViewController, UICollectio
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return donors.count
+        //return donors.count
+        
+        return filtereddonors.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DonorCell
         
-        cell.donor = donors[indexPath.row]
+     //   cell.donor = donors[indexPath.row]
+        
+        cell.donor = filtereddonors[indexPath.row]
         
     
         // cell.backgroundColor = UIColor.blue
@@ -162,9 +190,12 @@ class DonorCell: UICollectionViewCell {
     
     
     var donor: User?
+    
     {
         didSet{
-        NameLabel.text = donor?.Name
+     //   NameLabel.text = donor?.Name
+            
+         NameLabel.text = donor?.Name
         }
     }
     
